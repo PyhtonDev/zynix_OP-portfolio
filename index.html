@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ZYNIX | Roblox Developer Portfolio</title>
+
+<style>
+html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+
+body{
+font-family:Inter,Arial,Helvetica,sans-serif;
+margin:0;
+color:#e2e8f0;
+background:#020617;
+line-height:1.7;
+overflow-x:hidden;
+}
+
+/* CURSOR GLOW */
+.cursor-glow{
+position:fixed;
+width:600px;
+height:600px;
+pointer-events:none;
+border-radius:50%;
+background:radial-gradient(circle,rgba(99,102,241,0.15),transparent 65%);
+transform:translate(-50%,-50%);
+z-index:-1;
+}
+
+/* NAVBAR */
+nav{
+position:sticky;
+top:0;
+backdrop-filter:blur(12px);
+background:rgba(2,6,23,0.8);
+padding:20px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid rgba(99,102,241,0.25);
+z-index:1000;
+}
+
+.nav-logo{font-size:26px;font-weight:900;letter-spacing:2px;color:#fff}
+.nav-logo span{color:#6366f1}
+
+nav a{
+color:#cbd5f5;
+text-decoration:none;
+margin-left:25px;
+font-weight:600;
+transition:0.3s;
+}
+
+nav a:hover{color:#818cf8;transform:scale(1.1)}
+
+/* HERO */
+header{padding:140px 20px 70px;text-align:center;position:relative}
+
+.hero-house{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);opacity:0.15}
+.hero-house img{width:700px;max-width:90vw}
+
+h1{
+font-size:clamp(60px,10vw,100px);
+margin:0;
+font-weight:900;
+letter-spacing:-2px;
+background:linear-gradient(to bottom,#fff,#6366f1);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero-sub{color:#94a3b8;font-size:20px;margin:20px auto;max-width:700px}
+
+.hire-btn{
+display:inline-block;
+margin-top:20px;
+padding:12px 28px;
+border-radius:30px;
+background:#6366f1;
+color:white;
+text-decoration:none;
+font-weight:700;
+transition:0.3s;
+}
+
+.hire-btn:hover{transform:scale(1.08);box-shadow:0 10px 25px rgba(99,102,241,0.5)}
+
+.container{max-width:1150px;margin:auto;padding:20px}
+
+/* ABOUT */
+.about-card{
+background:rgba(15,23,42,0.6);
+padding:35px;
+border-radius:22px;
+border:1px solid rgba(255,255,255,0.08);
+margin:60px auto 40px auto;
+max-width:900px;
+text-align:center;
+}
+
+.about-card p{font-size:18px;color:#cbd5f5}
+
+/* SECTION */
+.section-card{
+background:rgba(15,23,42,0.6);
+padding:45px;
+border-radius:24px;
+border:1px solid rgba(255,255,255,0.08);
+margin-bottom:40px;
+transition:0.4s;
+}
+
+.section-card:hover{
+transform:translateY(-6px);
+border-color:#6366f1;
+box-shadow:0 15px 40px rgba(0,0,0,0.45);
+}
+
+h2{font-size:34px;margin-top:0;border-left:8px solid #6366f1;padding-left:15px}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+
+.skill-category h3{margin-top:0;color:#818cf8}
+
+.skills-container{display:flex;flex-wrap:wrap;gap:10px}
+
+.skills-container span{
+background:#0f172a;
+padding:10px 18px;
+border-radius:10px;
+border:1px solid #1e293b;
+font-weight:600;
+transition:0.3s;
+}
+
+.skills-container span:hover{
+background:#6366f1;
+transform:translateY(-6px);
+box-shadow:0 10px 18px rgba(99,102,241,0.35);
+}
+
+/* SERVICES */
+.services-list{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-top:20px;
+}
+
+.service-box{
+background:#020617;
+padding:20px;
+border-radius:14px;
+border:1px solid #1e293b;
+font-weight:600;
+text-align:center;
+}
+
+/* PROJECT GRID */
+.projects-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:28px;
+}
+
+.p-card{
+background:#020617;
+padding:24px;
+border-radius:18px;
+border:1px solid #1e293b;
+transition:0.35s;
+}
+
+.p-card:hover{
+transform:translateY(-12px) scale(1.05);
+border-color:#6366f1;
+box-shadow:0 0 30px rgba(99,102,241,0.35);
+}
+
+.media-wrapper{
+margin-top:18px;
+border-radius:12px;
+overflow:hidden;
+border:1px solid #1e293b;
+background:#000;
+}
+
+.media-wrapper img,.media-wrapper video{width:100%;display:block}
+
+.project-desc{font-size:14px;color:#94a3b8;margin-top:10px}
+
+.grey-studio{background:#2a2a2a !important;padding:10px}
+
+/* TESTIMONIALS */
+.testimonial{
+background:#020617;
+padding:20px;
+border-radius:14px;
+border:1px solid #1e293b;
+margin-top:15px;
+font-style:italic;
+}
+
+/* CONTACT */
+.contact-zone{
+background:linear-gradient(135deg,#6366f1,#4338ca);
+padding:60px;
+border-radius:25px;
+text-align:center;
+color:white;
+}
+
+footer{text-align:center;padding:90px 20px;color:#475569;font-weight:bold}
+
+</style>
+</head>
+
+<body>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<nav>
+<div class="nav-logo">ZY<span>NIX</span></div>
+<div>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Work</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+<header id="home">
+
+<h1>ZYNIX</h1>
+<p class="hero-sub">Roblox Developer • 5+ Years Scripting • 3D Modeler</p>
+<a class="hire-btn" href="#contact">Hire Me</a>
+</header>
+
+<div class="container">
+
+<section id="about" class="about-card">
+<h2 style="border:none">About Me</h2>
+<p>
+I'm ZYNIX, a Roblox developer specializing in gameplay systems and 3D modeling. I have over <strong>5 years of scripting experience</strong> and <strong>3 years of modeling experience</strong>. I focus on creating optimized, scalable game systems such as combat mechanics, movement systems, UI frameworks, and interactive gameplay features while also building custom 3D assets for games.
+</p>
+</section>
+
+<section id="skills" class="section-card">
+<h2>Skills</h2>
+<div class="skills-grid">
+
+<div class="skill-category">
+<h3>Scripting</h3>
+<div class="skills-container">
+<span>Combat Systems</span>
+<span>Inventory Systems</span>
+<span>Movement Systems</span>
+<span>UI Systems</span>
+<span>Admin Systems</span>
+<span>Server Optimization</span>
+</div>
+</div>
+
+<div class="skill-category">
+<h3>Modeling</h3>
+<div class="skills-container">
+<span>Weapons</span>
+<span>Low Poly Models</span>
+<span>Environment Props</span>
+<span>Stylized Assets</span>
+<span>Game Ready Models</span>
+</div>
+</div>
+
+</div>
+
+<h3 style="margin-top:35px">Tools</h3>
+<div class="skills-container">
+<span>Roblox Studio</span>
+<span>Blender</span>
+</div>
+
+</section>
+
+<section class="section-card">
+<h2>Services</h2>
+<div class="services-list">
+<div class="service-box">Roblox Gameplay Systems</div>
+<div class="service-box">Combat Systems</div>
+<div class="service-box">Inventory Systems</div>
+<div class="service-box">Custom UI Systems</div>
+<div class="service-box">3D Weapons & Assets</div>
+<div class="service-box">Environment Props</div>
+</div>
+</section>
+
+<section id="projects" class="section-card">
+<h2>Projects</h2>
+
+<div class="projects-grid">
+
+<div class="p-card">
+<h3>House Environment</h3>
+<div class="media-wrapper">
+<img src="house.png" alt="House Asset">
+</div>
+<p class="project-desc">Simple environment house asset that can be used in maps, villages, or world-building scenes inside Roblox experiences.</p>
+</div>
+
+<div class="p-card">
+<h3>Combat System</h3>
+<div class="media-wrapper">
+<video autoplay muted loop playsinline>
+<source src="combat_system.mp4" type="video/mp4">
+</video>
+</div>
+<p class="project-desc">A modular Roblox combat framework featuring combo attacks, hit detection, cooldowns, and optimized server validation.</p>
+</div>
+
+<div class="p-card">
+<h3>Movement System</h3>
+<div class="media-wrapper">
+<video autoplay muted loop playsinline>
+<source src="movement_system.mp4" type="video/mp4">
+</video>
+</div>
+<p class="project-desc">Advanced movement mechanics including sprinting, dashing, and smooth character control for action-based games.</p>
+</div>
+
+<div class="p-card">
+<h3>Inventory System</h3>
+<div class="media-wrapper">
+<img src="inventory.png" alt="Inventory System">
+</div>
+<p class="project-desc">A clean UI-based inventory system built for managing items, equipment, and in-game currencies efficiently.</p>
+</div>
+
+<div class="p-card">
+<h3>Legendary Scythe</h3>
+<div class="media-wrapper grey-studio">
+<img src="scythe.jpg" alt="Scythe Model">
+</div>
+<p class="project-desc">Stylized low‑poly fantasy weapon model designed for RPG style Roblox experiences.</p>
+</div>
+
+<div class="p-card">
+<h3>Dragon Pet Companion</h3>
+<div class="media-wrapper">
+<img src="dragon.png" alt="Dragon Pet">
+</div>
+<p class="project-desc">A stylized dragon companion model designed for pet systems or collectible creatures in Roblox games.</p>
+</div>
+
+<div class="p-card">
+<h3>Knight Boss Character</h3>
+<div class="media-wrapper">
+<img src="knight.png" alt="Knight Boss">
+</div>
+<p class="project-desc">Armored knight boss character asset designed for boss fights, NPC encounters, and RPG environments.</p>
+</div>
+
+</div>
+</section>
+
+<section class="section-card">
+<h2>Testimonials</h2>
+<div class="testimonial">"Great developer with clean scripting and fast delivery."</div>
+<div class="testimonial">"Professional work and good communication throughout the project."</div>
+</section>
+
+<section id="contact" class="section-card">
+<div class="contact-zone">
+<h2 style="border:none">Work With Me</h2>
+<h3 style="font-size:38px;margin:10px 0">Discord: zynix28</h3>
+<p style="font-size:20px;opacity:0.9">Roblox: Zynix_OP</p>
+</div>
+</section>
+
+</div>
+
+<footer>
+<p>© 2026 ZYNIX Portfolio</p>
+</footer>
+
+<script>
+
+const glow=document.getElementById('cursorGlow');
+
+document.addEventListener('mousemove',e=>{
+ glow.style.left=e.clientX+'px';
+ glow.style.top=e.clientY+'px';
+});
+
+/* FORCE VIDEO AUTOPLAY */
+
+document.querySelectorAll('video').forEach(v=>{
+ v.muted=true;
+ v.play().catch(()=>{});
+});
+
+</script>
+
+</body>
+</html>
